@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shivam Patel | Web Developer</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+/* Navbar */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+}
+
+nav h2{
+color:#00e5ff;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+/* Hero */
+
+.hero{
+text-align:center;
+padding:120px 20px;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.typing{
+color:#00e5ff;
+font-weight:bold;
+}
+
+/* Button */
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:12px 25px;
+background:#00e5ff;
+border-radius:30px;
+color:black;
+text-decoration:none;
+}
+
+/* Cards */
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border-radius:20px;
+padding:30px;
+margin:40px auto;
+max-width:600px;
+text-align:center;
+}
+
+/* Skills */
+
+.skills span{
+display:inline-block;
+background:#00e5ff;
+color:black;
+padding:10px 18px;
+margin:8px;
+border-radius:20px;
+}
+
+/* Footer */
+
+footer{
+text-align:center;
+padding:20px;
+opacity:0.7;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>Shivam</h2>
+
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+<div class="hero">
+
+<h1>Shivam Patel</h1>
+
+<p>I am a <span id="typing" class="typing"></span></p>
+
+<a class="btn" href="#">Hire Me</a>
+
+</div>
+
+<div id="about" class="card">
+
+<h2>About Me</h2>
+
+<p>I am a freelance website designer and developer who creates modern and responsive websites.</p>
+
+</div>
+
+<div id="skills" class="card">
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>Website Design</span>
+
+</div>
+
+</div>
+
+<div id="projects" class="card">
+
+<h2>Projects</h2>
+
+<p>Portfolio Website</p>
+<p>Business Landing Page</p>
+<p>E-commerce Website</p>
+
+</div>
+
+<div id="contact" class="card">
+
+<h2>Contact</h2>
+
+<p>Email: shivam@email.com</p>
+
+</div>
+
+<footer>
+
+© 2026 Shivam Patel
+
+</footer>
+
+<script>
+
+const words = ["Web Developer","Freelancer","Website Designer"];
+
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+
+function type(){
+
+current = words[i];
+
+if(isDeleting){
+j--;
+}else{
+j++;
+}
+
+document.getElementById("typing").textContent = current.substring(0,j);
+
+if(!isDeleting && j === current.length){
+isDeleting = true;
+setTimeout(type,1000);
+return;
+}
+
+if(isDeleting && j === 0){
+isDeleting = false;
+i++;
+if(i === words.length){
+i = 0;
+}
+}
+
+setTimeout(type,120);
+
+}
+
+type();
+
+</script>
+
+</body>
+</html>
